@@ -7,6 +7,8 @@ Created on Thu Aug 18 09:22:17 2022
 
 from tkinter import *
 
+midvalue = 0
+
 root=Tk()
 root.geometry("800x600+200+200")
 
@@ -30,26 +32,32 @@ def laststep():
 def Firststep():
     print(" ")
 
+def choosebutton():
+    dic = {1:
+           midvalue == 1,
+           2:
+           midvalue == 2,
+          }
+    
+
 def cal():
-    print(" ")
+    R1 = float(inpR1.get())
+    R2 = float(inpR2.get())
+    R3 = float(inpR3.get())
+    R4 = float(inpR4.get())
+    U = float(inpvoltage.get())
+    if midvalue == 1:
+        fvalue = U/R4+(R1+R3)*R4*U/(R1*R2+R1*R3+R2*R3)
+        fvalue1 = round(fvalue,3)
+        lb.config(text = fvalue1)
+    else:
+        fvalue = U/R3+(R4+R2)*R3*U/(R4*R1+R4*R2+R1*R2)
+        fvalue2 = round(fvalue,3)
+        lb.config(text = fvalue2)
 
 def popupmenu(event):
     mainmenu.post(event.x_root,event.y_root)
 
-def choosebutton():
-    R1 = float(inpR1.get)
-    R2 = float(inpR2.get)
-    R3 = float(inpR3.get)
-    R4 = float(inpR4.get)
-    U = float(inpvoltage.get)
-    dic = {1:
-               fvalue == U/R4+(R1+R3)*R4*U/(R1*R2+R1*R3+R2*R3)
-               lb.config(text = fvalue)
-           2:
-               fvalue == U/R3+(R4+R2)*R3*U/(R4*R1+R4*R2+R1*R2)
-               lb.config(text = fvalue)
-           }
-    
 #一堆函数
 
 mainmenu = Menu(root) 
