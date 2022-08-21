@@ -33,11 +33,12 @@ def Firststep():
     print(" ")
 
 def choosebutton():
-    dic = {1:
-           midvalue == 1,
-           2:
-           midvalue == 2,
-          }
+    global midvalue
+    dic = {1:"1",2:"2"}
+    s = dic.get(var.get())
+    #print(s)
+    midvalue = s
+    #print(midvalue)
     
 
 def cal():
@@ -46,7 +47,8 @@ def cal():
     R3 = float(inpR3.get())
     R4 = float(inpR4.get())
     U = float(inpvoltage.get())
-    if midvalue == 1:
+    #print("现在的midvalue是"+str(midvalue))
+    if midvalue == "1":
         fvalue = U/R4+(R1+R3)*R4*U/(R1*R2+R1*R3+R2*R3)
         fvalue1 = round(fvalue,3)
         lb.config(text = fvalue1)
