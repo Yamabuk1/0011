@@ -9,7 +9,6 @@ layout = [[sg.Text('                                 请选择大学：',size = 
           [sg.Button(key = 3 ,image_source=r'C:\Users\86183\Desktop\浙江大学.png',image_subsample=3 ),sg.Button(key = 4 ,image_source=r'C:\Users\86183\Desktop\复旦大学.png',image_subsample=3)],
           [sg.Text(size=(15,1),  key='-OUTPUT-')]]
           
-
 win1 = sg.Window('选择窗口', layout)
 win2_active=False
 while True:
@@ -25,11 +24,10 @@ while True:
     if (ev1 == 1 or ev1 == 2 or ev1 == 3 or ev1 == 4 )  and not win2_active:
         win2_active = True
         win1.Hide()
-        layout2 = [[sg.Text('Window 2')],      
-                   [sg.Multiline( key = 'TXT' , size=(80,40))],
+        layout2 = [[sg.Multiline( key = 'TXT' , size=(80,40))], #文本框的键及大小
                    [sg.Button('返回')]]
         
-        win2 = sg.Window('Window 2', layout2 , finalize = True )
+        win2 = sg.Window('信息窗口', layout2 , finalize = True )
         win2['TXT'].print(university,end='', text_color='red', background_color='yellow')
         win2['TXT'].print('\n'+'测试', end='')
 
