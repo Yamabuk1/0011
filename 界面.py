@@ -1,29 +1,29 @@
-import PySimpleGUI as sg      #用来编写界面的库
-import webbrowser   # 用来打开网站的库
-from URL_title import return_dict  #这是从爬虫返回网址和标题的函数
+import PySimpleGUI as sg                #用来编写界面的库
+import webbrowser                       # 用来打开网站的库
+from URL_title import return_dict       #这是从爬虫返回网址和标题的函数
 
-university = 0      #确定选哪个大学
+university = 0                          #确定选哪个大学
 
-sg.theme('Reddit')            #界面的颜色
+sg.theme('Reddit')                      #界面的颜色
 
 layout = [[sg.Text('                                 请选择大学：',size = (40,2),border_width=3)],                  #一行文本
           [sg.Button(key = 0 ,image_source=r'C:\Users\86183\Desktop\清华大学.png',image_subsample=3 ),sg.Button(key = 1 ,image_source=r'C:\Users\86183\Desktop\北京大学.png',image_subsample=3)],
           [sg.Button(key = 2 ,image_source=r'C:\Users\86183\Desktop\浙江大学.png',image_subsample=3 ),sg.Button(key = 3 ,image_source=r'C:\Users\86183\Desktop\复旦大学.png',image_subsample=3)],
           #四张校徽（按钮）
-          [sg.Text(size=(15,1),  key='-OUTPUT-')]]          #空行
+          [sg.Text(size=(15,1))]]                              #空行
           #第一个窗口的内容
-win1 = sg.Window('选择窗口', layout)        #定义第一个窗口
-win2_active=False             #标志第二个窗口是否出现
+win1 = sg.Window('选择窗口', layout)                            #定义第一个窗口
+win2_active=False                                              #标志第二个窗口是否出现
 while True:
-    ev1, vals1 = win1.read(timeout=100)           #读取按钮等事件
+    ev1, vals1 = win1.read(timeout=100)                        #读取按钮等事件
     if ev1 == sg.WIN_CLOSED:            
         break
-#点击叉号时关闭
+    #点击叉号时关闭
     if ev1 == 0 :   university =0
     if ev1 == 1 :   university =1
     if ev1 == 2 :   university =2
     if ev1 == 3 :   university =3
-#标志学校    
+    #标志学校    
     if (ev1 == 0 or ev1 == 1 or ev1 == 2 or ev1 == 3 )  and not win2_active:
         win2_active = True
         win1.Hide()
