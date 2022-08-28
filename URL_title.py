@@ -1,5 +1,3 @@
-
-
 import re   #正则表达式的库
 from bs4 import BeautifulSoup   #从网页中提取数据的库
 import requests     #爬取网页的库
@@ -34,6 +32,9 @@ def return_dict(un = 1) :                               #un是大学标志
         #通过正则获取标题，返回一个元组
         return(dict(zip(tuple2, tuple1)))
         #将两元组转换为字典，并返回
+        
+        
+    #下面基本是一样的
     elif un == 1 :
         global strinfo
         url = 'https://admission.pku.edu.cn/xxgk/xxgkssbm/index.htm?CSRFT=2PHA-DZ90-R1Y4-JCWS-LKQD-PR1L-66US-X5F3'
@@ -127,4 +128,4 @@ def return_dict(un = 1) :                               #un是大学标志
 
 
 
-print(return_dict(3))
+
